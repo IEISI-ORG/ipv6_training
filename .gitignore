@@ -1,0 +1,8 @@
+# Avoid uploading BIN files and other dross...
+
+*.pdf
+*.pptx
+
+# not any backups
+backups/*
+
