@@ -1,0 +1,100 @@
+<svg width="850" height="950" viewBox="0 0 850 950" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>
+            .font-main { font-family: -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; }
+            .font-mono { font-family: 'Consolas', 'Menlo', 'Courier New', monospace; }
+            .title { font-size: 26px; font-weight: 600; text-anchor: middle; fill: #2c3e50; }
+            .section-title { font-size: 20px; font-weight: 600; fill: #34495e; }
+            .label { font-size: 14px; font-weight: 600; fill: #7f8c8d; text-anchor: middle; }
+            .desc-text { font-size: 15px; fill: #555; text-anchor: middle; }
+            .desc-text-left { font-size: 15px; fill: #555; }
+            .address-text { font-size: 20px; font-weight: bold; text-anchor: middle; }
+            .box { fill: #ffffff; stroke: #dfe4ea; stroke-width: 1.5; rx: 8; }
+            .highlight-box { fill: #f1f8ff; stroke: #a0c4e4; }
+
+            /* Color Palette */
+            .mac-color { fill: #8e44ad; }
+            .interface-id-color { fill: #27ae60; }
+            .inserted-color { fill: #d35400; }
+            .bit-flip-color { fill: #c0392b; }
+            
+            .prefix-gua { fill: #2980b9; }
+            .prefix-link-local { fill: #16a085; }
+            .prefix-solicited { fill: #f39c12; }
+            .solicited-suffix { fill: #c0392b; font-weight: bold; }
+        </style>
+    </defs>
+
+    <rect x="0" y="0" width="850" height="950" fill="#f4f6f8"/>
+    <g class="font-main">
+        <!-- Title -->
+        <text x="425" y="50" class="title">IPv6 Address Derivation from a MAC Address</text>
+
+        <!-- Step 1: Create Interface ID -->
+        <g id="step1-interface-id">
+            <rect x="50" y="90" width="750" height="200" class="box"/>
+            <text x="75" y="125" class="section-title">Step 1: Create the EUI-64 Interface ID</text>
+
+            <text x="100" y="165" class="desc-text-left">Start with a 48-bit MAC Address:</text>
+            <text x="550" y="165" class="font-mono address-text mac-color">52:54:00:12:34:56</text>
+
+            <text x="100" y="210" class="desc-text-left">Insert <tspan class="font-mono inserted-color" font-weight="bold">FFFE</tspan> and flip the 7th bit (<tspan class="font-mono bit-flip-color">52</tspan> → <tspan class="font-mono bit-flip-color">50</tspan>):</text>
+            
+            <rect x="100" y="235" width="650" height="40" class="highlight-box"/>
+            <text x="425" y="263" class="font-mono address-text">
+                <tspan class="bit-flip-color">50</tspan><tspan class="mac-color">54:00</tspan><tspan class="inserted-color">ff:fe</tspan><tspan class="mac-color">12:34:56</tspan>
+            </text>
+        </g>
+        
+        <!-- Manually Drawn Down Arrow -->
+        <line x1="425" y1="290" x2="425" y2="323" stroke="#a0c4e4" stroke-width="2"/>
+        <polygon points="420,320 430,320 425,328" fill="#a0c4e4"/>
+
+        <!-- Step 2: Combine with Prefixes -->
+        <g id="step2-derived-addresses">
+            <rect x="50" y="330" width="750" height="580" class="box"/>
+            <text x="75" y="365" class="section-title">Step 2: Combine Interface ID with Standard Prefixes</text>
+
+            <!-- GUA -->
+            <g id="gua">
+                <text x="425" y="410" class="label">GLOBAL UNICAST ADDRESS (GUA)</text>
+                <text x="425" y="445" class="font-mono address-text">
+                    <tspan class="prefix-gua">2001:db8::</tspan><tspan class="interface-id-color">5054:ff:fe12:3456</tspan>
+                </text>
+                <text x="425" y="465" class="desc-text">(Example Prefix + Interface ID)</text>
+            </g>
+
+            <line x1="100" y1="500" x2="750" y2="500" stroke="#dfe4ea" stroke-width="1.5"/>
+
+            <!-- Link-Local -->
+            <g id="link-local">
+                <text x="425" y="540" class="label">LINK-LOCAL ADDRESS</text>
+                <text x="425" y="575" class="font-mono address-text">
+                    <tspan class="prefix-link-local">fe80::</tspan><tspan class="interface-id-color">5054:ff:fe12:3456</tspan>
+                </text>
+                <text x="425" y="595" class="desc-text">(FE80::/10 Prefix + Interface ID)</text>
+            </g>
+            
+            <line x1="100" y1="630" x2="750" y2="630" stroke="#dfe4ea" stroke-width="1.5"/>
+
+            <!-- Solicited-Node -->
+            <g id="solicited-node">
+                <text x="425" y="670" class="label">SOLICITED-NODE MULTICAST ADDRESS</text>
+                <text x="425" y="710" class="desc-text">Built from a fixed prefix and the <tspan font-weight="bold">last 24 bits</tspan> of the unicast address.</text>
+                
+                <!-- Visual Extraction -->
+                <text x="425" y="765" class="font-mono address-text">
+                    <tspan class="prefix-link-local">fe80::5054:ff:fe</tspan><tspan class="solicited-suffix" text-decoration="underline">12:3456</tspan>
+                </text>
+
+                <line x1="520" y1="770" x2="490" y2="828" stroke="#c0392b" stroke-width="4"/>
+
+                <rect x="200" y="800" width="450" height="40" class="highlight-box" stroke="#f39c12"/>
+                <text x="425" y="828" class="font-mono address-text">
+                    <tspan class="prefix-solicited">ff02::1:ff</tspan><tspan class="solicited-suffix">12:3456</tspan>
+                </text>
+            </g>
+
+        </g>
+    </g>
+</svg>
