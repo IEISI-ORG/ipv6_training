@@ -1,0 +1,109 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#f5f0e8"/>
+  
+  <!-- IPv6 Header Title -->
+  <text x="275" y="100" font-family="Arial, sans-serif" font-size="42" font-weight="bold" text-anchor="middle">IPv6 Header</text>
+  
+  <!-- IPv4 Header Title -->
+  <text x="840" y="100" font-family="Arial, sans-serif" font-size="42" font-weight="bold" text-anchor="middle">IPv4 Header</text>
+  
+  <!-- IPv6 Header -->
+  <!-- Row 1: Version, Traffic Class, Flow Label -->
+  <rect x="45" y="140" width="120" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="105" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Version</text>
+  
+  <rect x="165" y="140" width="145" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="237" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Traffic Class</text>
+  
+  <rect x="310" y="140" width="240" height="60" fill="#fffacd" stroke="#000" stroke-width="2"/>
+  <text x="430" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Flow Label</text>
+  
+  <!-- Row 2: Payload Length, Next Header, Hop Limit -->
+  <rect x="45" y="200" width="310" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="200" y="235" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Payload Length</text>
+  
+  <rect x="355" y="200" width="97" height="60" fill="#d4e6f1" stroke="#000" stroke-width="2"/>
+  <text x="403" y="225" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Next</text>
+  <text x="403" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Header</text>
+  
+  <rect x="452" y="200" width="98" height="60" fill="#d4e6f1" stroke="#000" stroke-width="2"/>
+  <text x="501" y="225" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Hop</text>
+  <text x="501" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Limit</text>
+  
+  <!-- Row 3: Source Address (large) -->
+  <rect x="45" y="260" width="505" height="160" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="297" y="350" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Source Address</text>
+  
+  <!-- Row 4: Destination Address (large) -->
+  <rect x="45" y="420" width="505" height="160" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="297" y="510" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Destination Address</text>
+  
+  <!-- IPv4 Header -->
+  <!-- Row 1: Version, IHL, Type of Service, Total Length -->
+  <rect x="585" y="140" width="63.75" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="616.375" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Version</text>
+  
+  <rect x="648.75" y="140" width="63.75" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="680.625" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">IHL</text>
+  
+  <rect x="712.5" y="140" width="127.5" height="60" fill="#d4e6f1" stroke="#000" stroke-width="2"/>
+  <text x="776.25" y="165" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Type of</text>
+  <text x="776.25" y="185" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Service</text>
+  
+  <rect x="840" y="140" width="255" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="967.5" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Total Length</text>
+  
+  <!-- Row 2: Identification, Flags, Fragment Offset -->
+  <rect x="585" y="200" width="255" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="712.5" y="235" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Identification</text>
+  
+  <rect x="840" y="200" width="63.75" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="871.875" y="235" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Flags</text>
+  
+  <rect x="903.75" y="200" width="191.25" height="60" fill="#f4d4d4" stroke="#000" stroke-width="2"/>
+  <text x="999.375" y="225" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Fragment</text>
+  <text x="999.375" y="245" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Offset</text>
+  
+  <!-- Row 3: TTL, Protocol, Header Checksum -->
+  <rect x="585" y="260" width="127.5" height="60" fill="#d4e6f1" stroke="#000" stroke-width="2"/>
+  <text x="648.75" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">TTL</text>
+  
+  <rect x="712.5" y="260" width="127.5" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="776.25" y="295" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Protocol</text>
+  
+  <rect x="840" y="260" width="255" height="60" fill="#f4d4d4" stroke="#000" stroke-width="2"/>
+  <text x="967.5" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Header Checksum</text>
+  
+  <!-- Row 4: Source Address -->
+  <rect x="585" y="320" width="510" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="840" y="355" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Source Address</text>
+  
+  <!-- Row 5: Destination Address -->
+  <rect x="585" y="380" width="510" height="60" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="840" y="415" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Destination Address</text>
+  
+  <!-- Row 6: Options and Padding -->
+  <rect x="585" y="440" width="355" height="60" fill="#f4d4d4" stroke="#000" stroke-width="2"/>
+  <text x="762" y="475" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Options</text>
+  
+  <rect x="940" y="440" width="155" height="60" fill="#f4d4d4" stroke="#000" stroke-width="2"/>
+  <text x="1017" y="475" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Padding</text>
+  
+  <!-- Legend item 1 (top left) -->
+  <rect x="300" y="670" width="50" height="40" fill="#e8f4e8" stroke="#000" stroke-width="2"/>
+  <text x="365" y="695" font-family="Arial, sans-serif" font-size="16">Fields <tspan font-weight="bold">kept</tspan> in IPv6</text>
+  
+  <!-- Legend item 2 (top right) -->
+  <rect x="650" y="670" width="50" height="40" fill="#d4e6f1" stroke="#000" stroke-width="2"/>
+  <text x="715" y="685" font-family="Arial, sans-serif" font-size="16">Fields <tspan font-weight="bold">kept</tspan> in IPv6, but name</text>
+  <text x="715" y="705" font-family="Arial, sans-serif" font-size="16">and position changed</text>
+  
+  <!-- Legend item 3 (bottom left) -->
+  <rect x="300" y="730" width="50" height="40" fill="#f4d4d4" stroke="#000" stroke-width="2"/>
+  <text x="365" y="755" font-family="Arial, sans-serif" font-size="16">Fields <tspan font-weight="bold">not kept</tspan> in IPv6</text>
+  
+  <!-- Legend item 4 (bottom right) -->
+  <rect x="650" y="730" width="50" height="40" fill="#fffacd" stroke="#000" stroke-width="2"/>
+  <text x="715" y="755" font-family="Arial, sans-serif" font-size="16">Fields that are <tspan font-weight="bold">new</tspan> in IPv6</text>
+</svg>

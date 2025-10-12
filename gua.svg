@@ -1,0 +1,34 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main address block sections -->
+  <!-- 001 section (3 bits) - Green -->
+  <rect x="50" y="80" width="80" height="120" fill="#90EE90" stroke="#000" stroke-width="3"/>
+  <text x="90" y="145" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">001</text>
+  
+  <!-- RIR section (9 bits) - Yellow -->
+  <rect x="130" y="80" width="240" height="120" fill="#FFD966" stroke="#000" stroke-width="3"/>
+  <text x="250" y="145" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle">RIR</text>
+  
+  <!-- ISP section (20 bits) - Blue -->
+  <rect x="370" y="80" width="320" height="120" fill="#6DB4FF" stroke="#000" stroke-width="3"/>
+  <text x="530" y="145" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle">ISP</text>
+  
+  <!-- Global Unicast Address section - Orange -->
+  <rect x="690" y="80" width="460" height="120" fill="#FFB380" stroke="#000" stroke-width="3"/>
+  <text x="920" y="145" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">Global Unicast Address</text>
+  
+  <!-- Bit count labels above -->
+  <text x="90" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">3 bits</text>
+  <text x="250" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">9 bits</text>
+  <text x="530" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">20 bits</text>
+  
+  <!-- Prefix labels below -->
+  <text x="90" y="230" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">/3</text>
+  <text x="250" y="230" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">/12</text>
+  <text x="530" y="230" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">/32</text>
+  
+  <!-- Bottom bracket showing total 128 bits -->
+  <line x1="50" y1="250" x2="50" y2="270" stroke="#000" stroke-width="2"/>
+  <line x1="50" y1="270" x2="1150" y2="270" stroke="#000" stroke-width="2"/>
+  <line x1="1150" y1="270" x2="1150" y2="250" stroke="#000" stroke-width="2"/>
+  <text x="600" y="290" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">128 bits</text>
+</svg>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC Address Structure</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+        .mac-row {
+            display: flex;
+            gap: 0;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        .octet {
+            width: 60px;
+            height: 50px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .oui { background: #e8e8e8; }
+        .nic { background: #d0e8ff; }
+        .modified { background: #ffcccc; }
+        .label-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+            gap: 0;
+        }
+        .label {
+            width: 180px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .label.oui-label { color: #666; }
+        .label.nic-label { color: #0066cc; }
+        .binary-info {
+            margin: 30px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .binary-bits {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .highlight { color: #cc0000; }
+        .divider {
+            margin: 25px 0;
+            border-top: 2px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">MAC Address to IPv6 Link-Local Transformation</div>
+        
+        <div class="mac-row">
+            <div class="octet oui">00</div>
+            <div class="octet oui">21</div>
+            <div class="octet oui">2F</div>
+            <div class="octet nic">10</div>
+            <div class="octet nic">A2</div>
+            <div class="octet nic">48</div>
+        </div>
+        <div class="label-row">
+            <div class="label oui-label">OUI</div>
+            <div class="label nic-label">NIC</div>
+        </div>
+        
+        <div class="binary-info">
+            <strong>First Octet (00):</strong>
+            <div class="binary-bits">Binary: 0000 0000</div>
+            <div>• Bit 0: <strong>0</strong> = Unicast</div>
+            <div>• Bit 1: <strong>0</strong> = Globally Unique</div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="mac-row">
+            <div class="octet oui">00</div>
+            <div class="octet oui">21</div>
+            <div class="octet oui">2F</div>
+            <div class="octet modified">FF</div>
+            <div class="octet modified">FE</div>
+            <div class="octet nic">10</div>
+            <div class="octet nic">A2</div>
+            <div class="octet nic">48</div>
+        </div>
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 8px;">
+            FF:FE inserted between OUI and NIC
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="mac-row">
+            <div class="octet modified">02</div>
+            <div class="octet oui">21</div>
+            <div class="octet oui">2F</div>
+            <div class="octet modified">FF</div>
+            <div class="octet modified">FE</div>
+            <div class="octet nic">10</div>
+            <div class="octet nic">A2</div>
+            <div class="octet nic">48</div>
+        </div>
+        
+        <div class="binary-info">
+            <strong>Modified First Octet (02):</strong>
+            <div class="binary-bits">Binary: 0000 00<span class="highlight">1</span>0</div>
+            <div>• Bit 0: <strong>0</strong> = Unicast</div>
+            <div>• Bit 1: <span class="highlight"><strong>1</strong></span> = Locally Administered</div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 15px; background: #e8f4f8; border-radius: 4px; text-align: center; font-size: 13px;">
+            <strong>Legend:</strong> 
+            <span style="background: #e8e8e8; padding: 2px 8px; margin: 0 5px;">OUI (Manufacturer)</span>
+            <span style="background: #d0e8ff; padding: 2px 8px; margin: 0 5px;">NIC (Device)</span>
+            <span style="background: #ffcccc; padding: 2px 8px; margin: 0 5px;">Modified</span>
+        </div>
+    </div>
+</body>
+</html>
