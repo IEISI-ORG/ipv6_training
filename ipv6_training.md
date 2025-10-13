@@ -600,7 +600,7 @@ Dedicate a block of your main allocation for internal infrastructure.
     -   Point-to-Point links (`/64` networks) (not `/126`)
     -   Internal Server LANs (NOC LAN) -- maybe LUA
     -   External Server LANs (Mail, DNS) -- firewalled GUA
--   **Everyone** just gets a `/64`
+-   **Everyone** just gets a `/64`: Yes? No?
 
 ---
 <style scoped>section{font-size:27px;}</style>
