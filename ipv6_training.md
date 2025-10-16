@@ -293,6 +293,8 @@ IPv6 multicast addresses use the format: **ffXY::/8**
 -   **Not routable.** Scope is limited to a single network segment (link).
 -   Used for Neighbor Discovery and as the next-hop address by routers.
 
+<i>Self-generated so nodes can 'fast start' local IPv6 operations.</i>
+
 ---
 <style scoped>section{font-size:27px;}</style>
 
