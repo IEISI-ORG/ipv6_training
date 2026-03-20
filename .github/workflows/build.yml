@@ -1,0 +1,54 @@
+name: Build and Package Course
+
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+
+jobs:
+  build-scorm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout content repo
+        uses: actions/checkout@v4
+
+      - name: Build Marp HTML
+        uses: docker://marpteam/marp-cli:latest
+        with:
+          args: ipv6_training.md --html --allow-local-files --output dist/ipv6_training.html
+
+      - name: Package SCORM
+        uses: IEISI-ORG/scorm-builder@main
+        id: scorm
+        with:
+          source_html: dist/ipv6_training.html
+          course_title: 'IPv6 Fundamentals v1'
+          course_identifier: 'ieisi-ipv6-v1'
+          course_version: ${{ github.ref_name || 'dev' }}
+          mastery_score: '80'
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ieisi-ipv6-scorm
+          path: ${{ steps.scorm.outputs.scorm_package }}
+
+      - name: Attach to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.scorm.outputs.scorm_package }}
+
+      - name: Deploy to Moodle
+        if: github.event_name == 'release'
+        env:
+          MOODLE_TOKEN: ${{ secrets.MOODLE_TOKEN }}
+          MOODLE_URL: ${{ secrets.MOODLE_URL }}
+        run: |
+          npx ts-node /path/to/moodle-mcp/scripts/deploy-scorm.ts \
+            --course-id ${{ vars.MOODLE_COURSE_ID }} \
+            --scorm-url ${{ steps.scorm.outputs.scorm_package }} \
+            --activity-name "IPv6 Fundamentals v1" \
+            --version ${{ github.ref_name }}
