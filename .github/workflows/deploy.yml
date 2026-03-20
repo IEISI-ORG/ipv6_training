@@ -1,0 +1,44 @@
+name: Deploy to Moodle
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options: [dev, prod]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Checkout course builder
+        uses: actions/checkout@v4
+        with:
+          repository: IEISI-ORG/moodle-course-builder
+          path: moodle-course-builder
+          token: ${{ secrets.ORG_PAT }}
+
+      - name: Install dependencies
+        run: pip install -r moodle-course-builder/requirements.txt
+
+      - name: Deploy course
+        env:
+          MOODLE_URL: ${{ secrets.MOODLE_URL }}
+          MOODLE_TOKEN: ${{ secrets.MOODLE_TOKEN }}
+        run: |
+          python moodle-course-builder/main.py deploy \
+            --file ipv6_training.md \
+            --assets-dir . \
+            --shortname ieisi-ipv6-v1 \
+            --category-id 1
